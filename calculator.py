@@ -39,6 +39,9 @@ while True:
         elif pieces[0] == 'mod':
             print mod(int(pieces[1]),int(pieces[2]))
 
+        else:
+            print "I didn't understand you. Please try again."
+
     else:
         break
 
