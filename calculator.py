@@ -18,7 +18,15 @@ while True:
         if pieces[0] == '+':
             result = add(int(pieces[1]),int(pieces[2]))
             print result
-    
+        
+        elif pieces[0] == '-':
+            print subtract(int(pieces[1]),int(pieces[2]))
+        
+        elif pieces[0] == '*':
+            print multiply(int(pieces[1]),int(pieces[2]))
+
+        elif pieces[0] == '/':
+            print divide(int(pieces[1]),int(pieces[2]))
 
     else:
         break
