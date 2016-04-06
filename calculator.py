@@ -11,6 +11,18 @@ from arithmetic import *
 # Your code goes here
 while True:
     userinput = raw_input()
-    pieces = userinput.split(' ')
-    print pieces
     
+    if userinput != "q":
+        pieces = userinput.split(' ')
+        # print pieces
+        if pieces[0] == '+':
+            result = add(int(pieces[1]),int(pieces[2]))
+            print result
+    
+
+    else:
+        break
+
+    
+
+
