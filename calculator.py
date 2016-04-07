@@ -19,25 +19,18 @@ def check_num_tokens(token_list, num_arg):
 def check_if_number(token_list):
     '''Checks if all tokens in list are whole numbers'''
 
-    valid = True
-
+    # make it so the for loop only does something if it needs to
     for token in token_list[1:]:
-        if token.isdigit():
-            continue
-        else:
-            valid = False
-            break
+        if not token.isdigit():
+            return False
 
-    return valid
+    return True
 
 
 def master_check(token_list, num_arg):
     '''Checks for valid inputs'''
 
-    if check_num_tokens(token_list, num_arg) and check_if_number(token_list):
-        return True
-    else:
-        return False
+    return check_num_tokens(token_list, num_arg) and check_if_number(token_list)
 
 
 
@@ -99,6 +92,7 @@ while True:
         else:
             print "I didn't understand you. Please try again."
 
+    # execute if the user types in 'q'
     else:
         break
 
