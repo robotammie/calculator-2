@@ -16,6 +16,30 @@ def check_num_tokens(token_list, num_arg):
         return False
 
 
+def check_if_number(token_list):
+    '''Checks if all tokens in list are whole numbers'''
+
+    valid = True
+
+    for token in token_list[1:]:
+        if token.isdigit():
+            continue
+        else:
+            valid = False
+            break
+
+    return valid
+
+
+def master_check(token_list, num_arg):
+    '''Checks for valid inputs'''
+
+    if check_num_tokens(token_list, num_arg) and check_if_number(token_list):
+        return True
+    else:
+        return False
+
+
 
 # Your code goes here
 while True:
@@ -23,33 +47,54 @@ while True:
     
     if userinput != "q":
         pieces = userinput.split(' ')
-        # print pieces
+        # print master_check(pieces, 2)
         if pieces[0] == '+':
-            if check_num_tokens(pieces, 2):
+            if master_check(pieces, 2):
                 print add(int(pieces[1]),int(pieces[2]))
             else:
-                print "Wrong number of inputs."
+                print "I didn't understand you. Please try again."
             
         elif pieces[0] == '-':
-            print subtract(int(pieces[1]),int(pieces[2]))
-        
+            if master_check(pieces, 2):
+                print subtract(int(pieces[1]),int(pieces[2]))
+            else:
+                print "I didn't understand you. Please try again."
+
         elif pieces[0] == '*':
-            print multiply(int(pieces[1]),int(pieces[2]))
+            if master_check(pieces, 2):
+                print multiply(int(pieces[1]),int(pieces[2]))
+            else:
+                print "I didn't understand you. Please try again."
 
         elif pieces[0] == '/':
-            print divide(int(pieces[1]),int(pieces[2]))
+            if master_check(pieces, 2):
+                print divide(int(pieces[1]),int(pieces[2]))
+            else:
+                print "I didn't understand you. Please try again."
 
         elif pieces[0] == 'square':
-            print square(int(pieces[1]))
+            if master_check(pieces, 1):
+                print square(int(pieces[1]))
+            else:
+                print "I didn't understand you. Please try again."
 
         elif pieces[0] == 'cube':
-            print cube(int(pieces[1]))
+            if master_check(pieces, 1):
+                print cube(int(pieces[1]))
+            else:
+                print "I didn't understand you. Please try again."
 
         elif pieces[0] == 'pow':
-            print power(int(pieces[1]),int(pieces[2]))
+            if master_check(pieces, 2):
+                print power(int(pieces[1]),int(pieces[2]))
+            else:
+                print "I didn't understand you. Please try again."
 
         elif pieces[0] == 'mod':
-            print mod(int(pieces[1]),int(pieces[2]))
+            if master_check(pieces, 2):
+                print mod(int(pieces[1]),int(pieces[2]))
+            else:
+                print "I didn't understand you. Please try again."
 
         else:
             print "I didn't understand you. Please try again."
