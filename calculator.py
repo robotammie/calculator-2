@@ -7,6 +7,15 @@ calculator program yourself in this file.
 
 from arithmetic import *
 
+def check_num_tokens(token_list, num_arg):
+    '''Check that the number of tokens matches the number of arguments needed'''
+
+    if len(token_list) == num_arg + 1:
+        return True
+    else:
+        return False
+
+
 
 # Your code goes here
 while True:
@@ -16,7 +25,10 @@ while True:
         pieces = userinput.split(' ')
         # print pieces
         if pieces[0] == '+':
-            print add(int(pieces[1]),int(pieces[2]))
+            if check_num_tokens(pieces, 2):
+                print add(int(pieces[1]),int(pieces[2]))
+            else:
+                print "Wrong number of inputs."
             
         elif pieces[0] == '-':
             print subtract(int(pieces[1]),int(pieces[2]))
